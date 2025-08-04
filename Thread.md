@@ -28,3 +28,6 @@
 2.设置线程的优先级
 3.线程出让和线程抢占，注意抢占不是一定成功，需要等待cpu调度
 4.线程睡眠等，睡眠不会占用cpu，会进入阻塞状态
+
+### 如何保证线程安全？
+加锁，比如synchronized(悲观锁，锁小不锁大，能锁代码块不锁方法)，ReentrantLock，volatile，AtomicInteger
