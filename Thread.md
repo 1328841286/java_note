@@ -13,8 +13,18 @@
 并发：cpu交替执行
 并行：cpu同时执行
 
-```java
-public class Demo {
-    
-}
-```
+### 多线程的实现方式有哪些，他们有什么区别？
+1.继承Thread类
+2.实现Runable接口
+3.实现Callable接口
+区别：
+1.继承Tread类，相比于后者更简单易用，可以直接使用Thread的成员方法，但是占用了继承位置，不利于拓展，适合处理一些简单的逻辑
+2.实现Runable 接口是为了解决继承位置被占用
+3.实现Callable接口是为了获取返回值，但是不能直接获取返回值，需要使用FutureTask类
+从上到下的三种方式都是在变复杂，但是更易于拓展，更适合处理一些复杂的场景
+
+### 多线程中常用的方法有哪些？
+1.获取当前线程：Thread.currentThread()，获取当前线程名称：Thread.currentThread().getName()，设置当前线程名称：Thread.currentThread().setName()
+2.设置线程的优先级
+3.线程出让和线程抢占，注意抢占不是一定成功，需要等待cpu调度
+4.线程睡眠等，睡眠不会占用cpu，会进入阻塞状态
